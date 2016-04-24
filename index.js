@@ -58,8 +58,11 @@ app.post('/webhook/', function (req, res) {
                 + currentdate.getSeconds();
                 sendTextMessage(sender, datetime);
       }
-      else if (text === "บอล") flag = true;
-      else if (flag) sendTextMessage(sender, "Text received, echo: "+ text.substring(0, 200));
+      else if (text === "บอล") {
+        flag = true;
+        sendTextMessage(sender, "ดูไรดี");
+      }
+      else if (flag) sendTextMessage(sender, "Team: "+ text.substring(0, 200));
       else
       sendTextMessage(sender, "Text received, echo: "+ text.substring(0, 200));
     }
