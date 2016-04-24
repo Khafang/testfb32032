@@ -62,7 +62,10 @@ app.post('/webhook/', function (req, res) {
         flag = true;
         sendTextMessage(sender, "ดูไรดี");
       }
-      else if (flag) sendTextMessage(sender, "Team: "+ text.substring(0, 200));
+      else if (flag){
+         sendTextMessage(sender, "Team: "+ text.substring(0, 200));
+         flag = false;
+       }
       else
       sendTextMessage(sender, "Text received, echo: "+ text.substring(0, 200));
     }
