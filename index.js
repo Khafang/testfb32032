@@ -50,7 +50,7 @@ app.post('/webhook/', function (req, res) {
       sendTextMessage(sender, "กนก");
       else if(text === "โอ็ต")
       sendTextMessage(sender, "ทักษิณ");
-      else if(text.indexOf("กี่โมง") > -1);){
+      else if(text.indexOf("กี่โมง") > -1){
         var currentdate = new Date();
                 var datetime = "Last Sync: " + currentdate.getDate() + "/"
                 + (currentdate.getMonth()+1)  + "/"
