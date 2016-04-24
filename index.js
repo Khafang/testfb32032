@@ -48,6 +48,8 @@ app.post('/webhook/', function (req, res) {
       text = event.message.text;
       if(text === "ติน")
       sendTextMessage(sender, "กนก");
+      if(text === "โอ็ต")
+      sendTextMessage(sender, "ทักษิณ");
       else
       sendTextMessage(sender, "Text received, echo: "+ text.substring(0, 200));
     }
