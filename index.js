@@ -46,6 +46,9 @@ app.post('/webhook/', function (req, res) {
     sender = event.sender.id;
     if (event.message && event.message.text) {
       text = event.message.text;
+      if(text === "ติน")
+      sendTextMessage(sender, "กนก");
+      else
       sendTextMessage(sender, "Text received, echo: "+ text.substring(0, 200));
     }
   }
