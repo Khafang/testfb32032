@@ -19,5 +19,6 @@
   "homepage": "https://github.com/Khafang/testfb32032#readme",
   "dependencies": {
     "express": "^4.13.4"
-  }
+  },
+  "devDependencies": {}
 }
