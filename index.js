@@ -48,8 +48,18 @@ app.post('/webhook/', function (req, res) {
       text = event.message.text;
       if(text === "ติน")
       sendTextMessage(sender, "กนก");
-      if(text === "โอ็ต")
+      else if(text === "โอ็ต")
       sendTextMessage(sender, "ทักษิณ");
+      else if(text.indexOf("กี่โมง") > -1);){
+        var currentdate = new Date();
+                var datetime = "Last Sync: " + currentdate.getDate() + "/"
+                + (currentdate.getMonth()+1)  + "/"
+                + currentdate.getFullYear() + " @ "
+                + currentdate.getHours() + ":"
+                + currentdate.getMinutes() + ":"
+                + currentdate.getSeconds();
+                sendTextMessage(sender, datetime);
+      }
       else
       sendTextMessage(sender, "Text received, echo: "+ text.substring(0, 200));
     }
