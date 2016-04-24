@@ -19,6 +19,7 @@
   "homepage": "https://github.com/Khafang/testfb32032#readme",
   "dependencies": {
     "body-parser": "^1.15.0",
+    "cheerio": "^0.20.0",
     "express": "^4.13.4",
     "request": "^2.72.0"
   },
