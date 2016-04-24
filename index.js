@@ -3,7 +3,9 @@ var request = require('request')
 var bodyParser = require('body-parser')
 
 var app = express()
+
 app.use(bodyParser.json())
+var flag = false;
 var token = "CAACrY5Wxe4QBAJHXMBG2tDGRndlz9ZB7ZAHVOPG7i1H9i4FcIr0M5nWhVqhFXPTm8Q32zSQKyRPU2PyXNFIHr0TbZC3KqkilYS5BUQJ9d5rUpqLfveWcLKVSaPIA08ZCeYM5GZBo28iEP3qedWp1rFKPjsGM7KZAZAqFvT3Exg6RRVGVFqo5mDBRkGB4dlOk3QZD";
 
 function sendTextMessage(sender, text) {
@@ -46,11 +48,7 @@ app.post('/webhook/', function (req, res) {
     sender = event.sender.id;
     if (event.message && event.message.text) {
       text = event.message.text;
-      if(text === "ติน")
-      sendTextMessage(sender, "กนก");
-      else if(text === "โอ็ต")
-      sendTextMessage(sender, "ทักษิณ");
-      else if(text.indexOf("กี่โมง") > -1){
+    if(text.indexOf("กี่โมง") > -1){
         var currentdate = new Date();
                 var datetime = "Last Sync: " + currentdate.getDate() + "/"
                 + (currentdate.getMonth()+1)  + "/"
@@ -60,6 +58,8 @@ app.post('/webhook/', function (req, res) {
                 + currentdate.getSeconds();
                 sendTextMessage(sender, datetime);
       }
+      else if (text === "บอล") flag = true;
+      else if (flag) sendTextMessage(sender, "Text received, echo: "+ text.substring(0, 200));
       else
       sendTextMessage(sender, "Text received, echo: "+ text.substring(0, 200));
     }
