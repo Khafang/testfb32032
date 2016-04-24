@@ -64,6 +64,9 @@ app.post('/webhook/', function (req, res) {
       }
       else if (flag){
          sendTextMessage(sender, "Team: "+ text.substring(0, 200));
+         var plantext = "https://www.google.co.th/search?q=";
+         plantext+=text;
+         sendTextMessage(sender, plantext);
          flag = false;
        }
       else
