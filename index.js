@@ -48,28 +48,12 @@ app.post('/webhook/', function (req, res) {
     sender = event.sender.id;
     if (event.message && event.message.text) {
       text = event.message.text;
-    if(text.indexOf("กี่โมง") > -1){
-        var currentdate = new Date();
-                var datetime = "Last Sync: " + currentdate.getDate() + "/"
-                + (currentdate.getMonth()+1)  + "/"
-                + currentdate.getFullYear() + " @ "
-                + currentdate.getHours() + ":"
-                + currentdate.getMinutes() + ":"
-                + currentdate.getSeconds();
-                sendTextMessage(sender, datetime);
+    if(text.indexOf("max") > -1){
+      var1 = text.substring(5,5);
+      var2 = text.substring(6,6);
+      strtext = var1+var2;
+      sendTextMessage(sender,strtext);
       }
-      else if (text === "บอล") {
-        flag = true;
-        sendTextMessage(sender, "ดูไรดี");
-      }
-      else if (flag){
-         sendTextMessage(sender, "Team: "+ text.substring(0, 200));
-
-         var plantext = "https://www.google.co.th/search?q=";
-         plantext+=text;
-         sendTextMessage(sender, plantext);
-         flag = false;
-       }
       else
       sendTextMessage(sender, "Text received, echo: "+ text.substring(0, 200));
     }
