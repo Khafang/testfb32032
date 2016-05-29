@@ -77,8 +77,8 @@ app.post('/webhook/', function (req, res) {
                     result += parseInt(fulltext.charAt(n));
                     count++;
                   }
-                  result /= count;
-                    sendTextMessage(sender,result);
+                  result = result / count;
+                    sendTextMessage(sender,"Stun");
                   }
       else
       sendTextMessage(sender, "Text received, echo: "+ text.substring(0, 200));
