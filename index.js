@@ -72,10 +72,9 @@ app.post('/webhook/', function (req, res) {
           }
           else  if(text.indexOf("avg") > -1){
                   fulltext = text.replace(/\s+/g, '');
-                  var n = 3,result=0,count=0;
-                  while(fulltext.charAt(n) != ' '){
+                  var result=0,count=0;
+                  for (n=3 ; n<fulltext.length ; n++)
                     result += parseInt(fulltext.charAt(n));
-                    n++;
                     count++;
                   }
                   result /= count;
