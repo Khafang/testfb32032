@@ -89,10 +89,7 @@ app.post('/webhook/', function (req, res) {
   res.sendStatus(200);
 });
 
-app.get('/add/', function (req, res) {
-res.send('<html> </html>')
 
-})
 
 app.set('port', (process.env.PORT || 5000))
 
