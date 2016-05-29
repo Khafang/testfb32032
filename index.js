@@ -75,7 +75,7 @@ app.post('/webhook/', function (req, res) {
           for(n = 0 ; n < text.length ; n ++){
             if(text.charAt(n) != 'a' && text.charAt(n) != 'v' && text.charAt(n) != 'g')
             var temp = parseInt(text.charAt(n));
-            result = temp;
+            result += temp;
           }
                     sendTextMessage(sender,result);
                   }
