@@ -74,6 +74,7 @@ app.post('/webhook/', function (req, res) {
                   var result=0,count=0;
                   for (n=0 ; n<text.length ; n++)
                     count++;
+                    console.log("stun");
                   }
                     sendTextMessage(sender,"Stun");
                   }
