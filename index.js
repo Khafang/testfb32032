@@ -89,7 +89,10 @@ app.post('/webhook/', function (req, res) {
   res.sendStatus(200);
 });
 
-
+app.get('/่jsonadd/', function (req, res) {
+  res.send('Hello World!')
+  console.log("latest update");
+})
 
 app.set('port', (process.env.PORT || 5000))
 
