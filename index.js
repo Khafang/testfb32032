@@ -51,7 +51,8 @@ app.post('/webhook/', function (req, res) {
     if(text.indexOf("max") > -1){
       var1 = text.substring(4,5);
       var2 = text.substring(6,7);
-      sendTextMessage(sender,var2);
+      var result = parseInt(var1) + parseInt(var2);
+      sendTextMessage(sender,result);
       }
       else
       sendTextMessage(sender, "Text received, echo: "+ text.substring(0, 200));
