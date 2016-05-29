@@ -71,7 +71,16 @@ app.post('/webhook/', function (req, res) {
           sendTextMessage(sender,var2);
           }
       else  if(text.indexOf("avg") > -1){
-              result = text.replace(/\s+/g, '');
+              fulltext = text.replace(/\s+/g, '');
+              var n = 6,result=0,count=0;
+              if(fulltext.charAt(n) != ' ')
+              result = "....."
+            /*  while(fulltext.charAt(n) != ' '){
+                result += parseInt(fulltext.charAt(n));
+                n++;
+                count++;
+              }
+              result /= count;*/
                 sendTextMessage(sender,result);
               }
       else
