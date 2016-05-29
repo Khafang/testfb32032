@@ -48,12 +48,28 @@ app.post('/webhook/', function (req, res) {
     sender = event.sender.id;
     if (event.message && event.message.text) {
       text = event.message.text;
-    if(text.indexOf("max") > -1){
+    if(text.indexOf("sum") > -1){
       var1 = text.substring(4,5);
       var2 = text.substring(6,7);
       var result = parseInt(var1) + parseInt(var2);
       sendTextMessage(sender,result);
       }
+    else  if(text.indexOf("max") > -1){
+        var1 = text.substring(4,5);
+        var2 = text.substring(6,7);
+        if(parseInt(var1) >= parseInt(var2))
+          sendTextMessage(sender,var1);
+        else
+        sendTextMessage(sender,var2);
+        }
+      else  if(text.indexOf("min") > -1){
+          var1 = text.substring(4,5);
+          var2 = text.substring(6,7);
+          if(parseInt(var1) <= parseInt(var2))
+            sendTextMessage(sender,var1);
+          else
+          sendTextMessage(sender,var2);
+          }
       else
       sendTextMessage(sender, "Text received, echo: "+ text.substring(0, 200));
     }
