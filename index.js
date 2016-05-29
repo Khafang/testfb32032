@@ -71,10 +71,13 @@ app.post('/webhook/', function (req, res) {
           sendTextMessage(sender,var2);
           }
         else  if(text.indexOf("avg") > -1){
+          var result=0;
           for(n = 0 ; n < text.length ; n ++){
-            console.log("5555");
+            if(text.charAt(n) != 'a' && text.charAt(n) != 'v' && text.charAt(n) != 'g')
+            var temp = parseInt(text.charAt(n));
+            result = temp;
           }
-                    sendTextMessage(sender,"Stun");
+                    sendTextMessage(sender,result);
                   }
       else
       sendTextMessage(sender, "Text received, echo: "+ text.substring(0, 200));
