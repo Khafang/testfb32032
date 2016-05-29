@@ -70,9 +70,9 @@ app.post('/webhook/', function (req, res) {
           else
           sendTextMessage(sender,var2);
           }
-          else  if(text.indexOf("avg") > -1){
-            
-                sendTextMessage(sender,text.replace((/ /g,''));
+      else  if(text.indexOf("avg") > -1){
+              result = text.replace(/\s+/g, '');
+                sendTextMessage(sender,result);
               }
       else
       sendTextMessage(sender, "Text received, echo: "+ text.substring(0, 200));
