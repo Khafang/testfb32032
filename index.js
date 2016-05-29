@@ -32,6 +32,7 @@ function sendTextMessage(sender, text) {
 
 app.get('/', function (req, res) {
   res.send('Hello World!')
+  console.log("latest update");
 })
 
 app.get('/webhook/', function (req, res) {
@@ -71,14 +72,15 @@ app.post('/webhook/', function (req, res) {
           sendTextMessage(sender,var2);
           }
         else  if(text.indexOf("avg") > -1){
-          var result=0;
+          var result=0,count=0;
           for(n = 0 ; n < text.length ; n ++){
             if(text.charAt(n) != 'a' && text.charAt(n) != 'v' && text.charAt(n) != 'g' && text.charAt(n) != ' '){
             var temp = text.charAt(n);
             result += parseInt(temp);
+            count++;
             }
           }
-                    sendTextMessage(sender,result);
+                    sendTextMessage(sender,result/count);
                   }
       else
       sendTextMessage(sender, "Text received, echo: "+ text.substring(0, 200));
