@@ -71,11 +71,6 @@ app.post('/webhook/', function (req, res) {
           sendTextMessage(sender,var2);
           }
         else  if(text.indexOf("avg") > -1){
-                  var result=0,count=0;
-                  for (n=0 ; n<text.length ; n++)
-                    count++;
-                    console.log("stun");
-                  }
                     sendTextMessage(sender,"Stun");
                   }
       else
